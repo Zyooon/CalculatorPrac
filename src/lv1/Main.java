@@ -1,9 +1,6 @@
 package lv1;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
 
@@ -11,7 +8,6 @@ public class Main {
     static int firstNum;
     static int secondNum;
     static char operator;
-    static boolean isOnOff = true;
     static Set<Character> operatorSet = new HashSet<>(Arrays.asList('*', '+', '-', '/'));
     static int resultNum;
     static String exit;
@@ -20,7 +16,7 @@ public class Main {
 
         System.out.println("지금부터 계산을 시자악 하겠습니다~!");
 
-        while(isOnOff){
+        while(true){
 
             //첫번째 숫자 입력
             while(true){
@@ -29,25 +25,29 @@ public class Main {
                 try{
                     firstNum = sc.nextInt();
                     break;
+                } catch (InputMismatchException e){
+                    System.out.println("문자열이거나 너무 긴 숫자는 입력할 수 없어요.");
+                    sc.nextLine();
                 } catch (Exception e) {
-                    System.out.println("제대로 입력해 주세요");
+                    System.out.println("제대로 입력해 주세요.");
                     sc.nextLine();
                 }
             }
             
             //연산자 입력
             while(true){
-                System.out.println("연산자를 입력하세요");
+                System.out.println("연산자를 입력하세요. (+,-,*,/)");
                 System.out.print("연산자 입력 : ");
                 try{
-                    operator = sc.next().charAt(0); //nextLine > next 로 변경
+                    String str = sc.next(); //nextLine > next 로 변경
+                    operator = str.charAt(str.length()-1);
                     if(operatorSet.contains(operator)) break;
 
                 } catch (Exception e) {
-                    System.out.println("제대로 입력해 주세요1");
+                    System.out.println("+,-,*,/ 만 입력해주세요");
                     sc.nextLine();
                 }
-                System.out.println("제대로 입력해 주세요2");
+                System.out.println("+,-,*,/ 만 입력해주세요");
             }
 
             //두번째 숫자 입력
@@ -61,27 +61,45 @@ public class Main {
                         continue;
                     }
                     break;
-                } catch (Exception e) {
-                    System.out.println("제대로 입력해 주세요");
+                } catch (InputMismatchException e){
+                    System.out.println("문자열이거나 너무 긴 숫자는 입력할 수 없어요.");
                     sc.nextLine();
-                    continue;
+
+                } catch (Exception e) {
+                    System.out.println("제대로 입력해 주세요3");
+                    sc.nextLine();
                 }
             }
 
-            //계산하기
-            switch (operator){
-                case '+' : resultNum = firstNum + secondNum; break;
-                case '-' : resultNum = firstNum - secondNum; break;
-                case '*' : resultNum = firstNum * secondNum; break;
-                case '/' : resultNum = firstNum / secondNum; break;
+            //계산하기 -> 오버플로우 수정
+//            switch (operator){
+//                case '+' : resultNum = firstNum + secondNum; break;
+//                case '-' : resultNum = firstNum - secondNum; break;
+//                case '*' : resultNum = firstNum * secondNum; break;
+//                case '/' : resultNum = firstNum / secondNum; break;
+//            }
+
+            //int 오버플로우 방지
+            try{
+                switch (operator){
+                    case '+' : resultNum = Math.addExact(firstNum,secondNum); break;
+                    case '-' : resultNum = Math.subtractExact(firstNum,secondNum); break;
+                    case '*' : resultNum = Math.multiplyExact(firstNum,secondNum); break;
+                    case '/' : resultNum = firstNum / secondNum; break;
+                }
+
+                System.out.println("연산 결과 : " + resultNum);
+            } catch (ArithmeticException e) {
+                System.out.println("입력값이 범위를 초과하였습니다.");
             }
 
-            System.out.println("연산 결과 : " + resultNum);
+
             System.out.println("\r더 하시려면 아무키나 눌러주세요. (exit 입력 시 종료)");
 
             try{
                 exit = sc.next();
                 if(exit.equals("exit")){
+                    System.out.println("종료되었습니다.");
                     break;
                 }
             } catch (Exception e) {
@@ -89,7 +107,7 @@ public class Main {
             }
             //계산 끝
         }
-        System.out.println("종료되었습니다.");
+
         sc.close();
 
     }

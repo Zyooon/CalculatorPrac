@@ -12,6 +12,7 @@ public class Main {
         //scanner 에서 NoSuchElementException 에러 발생
 
         System.out.println("지금부터 계산을 시자악 하겠습니다~!");
+        //계산기 클래스
         calOperator.operator();
         System.out.println("종료되었습니다.");
 

@@ -64,7 +64,8 @@ public class CalculatorOperator {
             System.out.println("연산자를 입력하세요");
             System.out.print("연산자 입력 : ");
             try{
-                tempChar = sc.next().charAt(0); //nextLine > next 로 변경
+                String str = sc.next(); //nextLine > next 로 변경
+                tempChar = str.charAt(str.length()-1);
                 if(operatorSet.contains(tempChar)) {
                     calData.setOperator(tempChar);
                     break;
@@ -148,6 +149,7 @@ public class CalculatorOperator {
                  } else if(scTemp == 0){
                      return rd;
                  }
+                 System.out.println("다시 눌러 주세요.");
              } catch (Exception e) {
                  System.out.println("다시 눌러 주세요.");
              }
