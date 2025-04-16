@@ -2,7 +2,7 @@ package lv1;
 
 import java.util.*;
 
-public class Main {
+public class App {
 
     static Scanner sc = new Scanner(System.in);
     static int firstNum;
@@ -26,7 +26,7 @@ public class Main {
                     firstNum = sc.nextInt();
                     break;
                 } catch (InputMismatchException e){
-                    System.out.println("문자열이거나 너무 긴 숫자는 입력할 수 없어요.");
+                    System.out.println("문자나 기호, 너무 긴 숫자는 입력할 수 없어요.");
                     sc.nextLine();
                 } catch (Exception e) {
                     System.out.println("제대로 입력해 주세요.");
@@ -62,7 +62,7 @@ public class Main {
                     }
                     break;
                 } catch (InputMismatchException e){
-                    System.out.println("문자열이거나 너무 긴 숫자는 입력할 수 없어요.");
+                    System.out.println("문자나 기호, 너무 긴 숫자는 입력할 수 없어요.");
                     sc.nextLine();
 
                 } catch (Exception e) {
@@ -70,14 +70,6 @@ public class Main {
                     sc.nextLine();
                 }
             }
-
-            //계산하기 -> 오버플로우 수정
-//            switch (operator){
-//                case '+' : resultNum = firstNum + secondNum; break;
-//                case '-' : resultNum = firstNum - secondNum; break;
-//                case '*' : resultNum = firstNum * secondNum; break;
-//                case '/' : resultNum = firstNum / secondNum; break;
-//            }
 
             //int 오버플로우 방지
             try{
@@ -87,14 +79,13 @@ public class Main {
                     case '*' : resultNum = Math.multiplyExact(firstNum,secondNum); break;
                     case '/' : resultNum = firstNum / secondNum; break;
                 }
-
                 System.out.println("연산 결과 : " + resultNum);
+                System.out.println("\r더 하시려면 아무키나 눌러주세요. (exit 입력 시 종료)");
             } catch (ArithmeticException e) {
                 System.out.println("입력값이 범위를 초과하였습니다.");
+                System.out.println("다시 입력해 주세요.");
+                continue;
             }
-
-
-            System.out.println("\r더 하시려면 아무키나 눌러주세요. (exit 입력 시 종료)");
 
             try{
                 exit = sc.next();
