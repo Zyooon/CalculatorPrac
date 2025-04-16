@@ -7,7 +7,7 @@ public class App {
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        CalculatorData calData = new CalculatorData();
+
         Scanner sc = new Scanner(System.in);
         //메인 클래스
         //생성자 클래스 - 숫자 두개, 연산자, 결과 값, 결과 기록 stack
@@ -17,7 +17,7 @@ public class App {
         //계산기 클래스
 
         while(true){
-
+            CalculatorData calData = new CalculatorData();
             //숫자 입력
             calData = insertData(calData, sc);
             sc.nextLine();
@@ -44,7 +44,7 @@ public class App {
                 System.out.println("종료되었습니다.");
                 break;
             }else if(num == 3){
-                //가장 먼저 저장된 데이터 지우기ㅍ
+                //가장 먼저 저장된 데이터 지우기
                 calculator = calculator.deleteData(calculator, sc);
             }
 

@@ -45,7 +45,7 @@ public class CalculatorData {
 
     @Override
     public String toString() {
-        return "연산 결과{" + firstNum + operator + secondNum + '=' + resultNum + '}';
+        return "연산 결과{ " + firstNum+ " " +operator+ " " + secondNum + " = " + resultNum + " }";
 
     }
 }
