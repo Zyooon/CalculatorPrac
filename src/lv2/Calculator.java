@@ -24,7 +24,7 @@ public class Calculator {
     }
 
     //계산하는 메서드
-    public int dataOperate(CalculatorData calData) throws ArithmeticException{
+    public int calculate(CalculatorData calData) throws ArithmeticException{
 
         int resultNum = 0;
         int firstNum = calData.getFirstNum();
@@ -57,7 +57,7 @@ public class Calculator {
         return 1;
      }
      // 데이터 삭제
-     public Calculator deleteData(Calculator rd, Scanner sc){
+     public Calculator removeResult(Calculator rd, Scanner sc){
         int scTemp;
         while (true){
              System.out.println("데이터를 지우시겠습니까?");

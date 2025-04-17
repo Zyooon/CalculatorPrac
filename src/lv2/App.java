@@ -19,12 +19,12 @@ public class App {
         while(true){
             CalculatorData calData = new CalculatorData();
             //숫자 입력
-            calData = insertData(calData, sc);
+            calData = inputData(calData, sc);
             sc.nextLine();
 
             //계산 - 입력값 범위 초과시 에러
             try{
-                calData.setResultNum(calculator.dataOperate(calData));
+                calData.setResultNum(calculator.calculate(calData));
                 System.out.println("연산 결과 : " + calData.getResultNum());
             }catch (ArithmeticException e) {
                 System.out.println("입력값이 범위를 초과하였습니다.");
@@ -45,7 +45,7 @@ public class App {
                 break;
             }else if(num == 3){
                 //가장 먼저 저장된 데이터 지우기
-                calculator = calculator.deleteData(calculator, sc);
+                calculator = calculator.removeResult(calculator, sc);
             }
 
             
@@ -56,7 +56,7 @@ public class App {
 
 
 
-    public static CalculatorData insertData(CalculatorData calData, Scanner sc){
+    public static CalculatorData inputData(CalculatorData calData, Scanner sc){
         int tempNum;
         char tempChar;
 

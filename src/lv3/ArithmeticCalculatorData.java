@@ -1,0 +1,52 @@
+package lv3;
+
+//T 타입을 Number 로 제한 -> 숫자만 입력받음
+public class ArithmeticCalculatorData<T extends Number> {
+
+    private T firstNum;
+    private T secondNum;
+    private char operator;
+    private T resultNum;
+
+    public ArithmeticCalculatorData() {
+    }
+
+    public T getFirstNum() {
+        return firstNum;
+    }
+
+    public void setFirstNum(T firstNum) {
+        this.firstNum = firstNum;
+    }
+
+    public T getSecondNum() {
+        return secondNum;
+    }
+
+    public void setSecondNum(T secondNum) {
+        this.secondNum = secondNum;
+    }
+
+    public char getOperator() {
+        return operator;
+    }
+
+    public void setOperator(char operator) {
+        this.operator = operator;
+    }
+
+    public T getResultNum() {
+        return resultNum;
+    }
+
+    public void setResultNum(T resultNum) {
+        this.resultNum = resultNum;
+    }
+
+
+    @Override
+    public String toString() {
+        return "연산 결과{ " + firstNum + " " + operator + " " + secondNum + " = " + resultNum + " }";
+
+    }
+}
