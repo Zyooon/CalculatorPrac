@@ -8,7 +8,6 @@ public class App {
 
     public static void main(String[] args) {
 
-
         Scanner sc = new Scanner(System.in);
         //메인 클래스
         //생성자 클래스 - 숫자 두개, 연산자, 결과 값, 결과 기록 stack

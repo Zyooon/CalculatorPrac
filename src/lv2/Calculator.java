@@ -43,7 +43,7 @@ public class Calculator {
 
     // 또 할지 말지
      public int isGoStop(Scanner sc){
-        System.out.println("\r더 하시려면 아무키나 눌러주세요. (exit 입력 시 종료, del 입력시 데이터 삭제)");
+        System.out.println("\n더 하시려면 아무키나 눌러주세요. (exit 입력 시 종료, del 입력시 데이터 삭제)");
         try{
             String str = sc.nextLine();
             if(str.equals("exit")){
@@ -60,7 +60,7 @@ public class Calculator {
      public Calculator removeResult(Calculator rd, Scanner sc){
         int scTemp;
         while (true){
-             System.out.println("데이터를 지우시겠습니까?");
+             System.out.println("\n데이터를 지우시겠습니까?");
              System.out.println("최근 데이터 삭제 : 1");
              System.out.println("모든 데이터 삭제 : 2");
              System.out.println("삭제 안함 : 0");

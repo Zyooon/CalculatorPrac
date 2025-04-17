@@ -13,7 +13,7 @@ public class App {
         //생성자 클래스 - 숫자 두개, 연산자, 결과 값, 결과 기록 stack
         //연산하는 클래스
 
-        System.out.println("지금부터 계산을 시자악 하겠습니다~!");
+        System.out.println("계산기 시작");
         //계산기 클래스
 
         while(true){
@@ -62,7 +62,7 @@ public class App {
 
         //첫번째 숫자 입력
         while(true){
-            System.out.println("첫번째 숫자를 입력하세요");
+            System.out.println("\n첫번째 숫자를 입력하세요");
             System.out.print("숫자 입력 : ");
             try{
                 tempNum = sc.nextInt();
@@ -76,7 +76,7 @@ public class App {
 
         //연산자 입력
         while(true){
-            System.out.println("연산자를 입력하세요");
+            System.out.println("\n연산자를 입력하세요");
             System.out.print("연산자 입력 : ");
             try{
                 String str = sc.next(); //nextLine > next 로 변경
@@ -96,7 +96,7 @@ public class App {
 
         //두번째 숫자 입력
         while(true){
-            System.out.println("두번째 숫자를 입력하세요");
+            System.out.println("\n두번째 숫자를 입력하세요");
             System.out.print("숫자 입력 : ");
             try{
                 tempNum = sc.nextInt();

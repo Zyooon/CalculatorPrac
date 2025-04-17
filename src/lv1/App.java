@@ -14,13 +14,13 @@ public class App {
 
     public static void main(String[] args) {
 
-        System.out.println("지금부터 계산을 시자악 하겠습니다~!");
+        System.out.println("계산기 시작!");
 
         while(true){
 
             //첫번째 숫자 입력
             while(true){
-                System.out.println("첫번째 숫자를 입력하세요");
+                System.out.println("\n첫번째 숫자를 입력하세요");
                 System.out.print("숫자 입력 : ");
                 try{
                     firstNum = sc.nextInt();
@@ -36,7 +36,7 @@ public class App {
             
             //연산자 입력
             while(true){
-                System.out.println("연산자를 입력하세요. (+,-,*,/)");
+                System.out.println("\n연산자를 입력하세요. (+,-,*,/)");
                 System.out.print("연산자 입력 : ");
                 try{
                     String str = sc.next(); //nextLine > next 로 변경
@@ -52,7 +52,7 @@ public class App {
 
             //두번째 숫자 입력
             while(true){
-                System.out.println("두번째 숫자를 입력하세요");
+                System.out.println("\n두번째 숫자를 입력하세요");
                 System.out.print("숫자 입력 : ");
                 try{
                     secondNum = sc.nextInt();
@@ -80,7 +80,7 @@ public class App {
                     case '/' : resultNum = firstNum / secondNum; break;
                 }
                 System.out.println("연산 결과 : " + resultNum);
-                System.out.println("\r더 하시려면 아무키나 눌러주세요. (exit 입력 시 종료)");
+                System.out.println("\n더 하시려면 아무키나 눌러주세요. (exit 입력 시 종료)");
             } catch (ArithmeticException e) {
                 System.out.println("입력값이 범위를 초과하였습니다.");
                 System.out.println("다시 입력해 주세요.");

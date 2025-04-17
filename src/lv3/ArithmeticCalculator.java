@@ -93,7 +93,7 @@ public class ArithmeticCalculator {
 
     }
 
-    // 또 할지 말지
+    // 종료할지 말지
     public boolean isGoStop(Scanner sc) {
         System.out.println("\n.exit 입력 시 종료됩니다.");
         try {
@@ -123,7 +123,8 @@ public class ArithmeticCalculator {
         while (true) {
             System.out.println("\n필요한 작업을 선택해주세요.");
             System.out.println("연산 기록 조회 : 1");
-            System.out.println("데이터 삭제 : 2");
+            System.out.println("특정 데이터 조회 : 2");
+            System.out.println("데이터 삭제 : 3");
             System.out.println("계산기 시작 : 0");
             try {
                 int num = sc.nextInt();
@@ -132,6 +133,9 @@ public class ArithmeticCalculator {
                         System.out.println(cal.getResultList());
                         break;
                     case 2:
+                        cal = checkUpperResult(cal, sc);
+                        break;
+                    case 3:
                         cal = removeResult(cal, sc);
                         break;
                     case 0:
@@ -157,7 +161,6 @@ public class ArithmeticCalculator {
             System.out.println("데이터를 지우시겠습니까?");
             System.out.println("최근 데이터 삭제 : 1");
             System.out.println("모든 데이터 삭제 : 2");
-            System.out.println("입력값 보다 큰 데이터 삭제 : 3");
             System.out.println("삭제 안함 : 0");
             try {
                 scTemp = sc.nextInt();
@@ -170,9 +173,7 @@ public class ArithmeticCalculator {
                     cal.getResultList().clear();
                     System.out.println(cal.getResultList());
                     return cal;
-                } else if (scTemp == 3) {
-                    return removeUpperResult(cal, sc);
-                } else if (scTemp == 0) {
+                }  else if (scTemp == 0) {
                     return cal;
                 } else {
                     System.out.println("다시 눌러 주세요.");
@@ -184,20 +185,19 @@ public class ArithmeticCalculator {
         }
 
     }
-    // stream 값보다 큰 결과 조회 후 삭제 -> stream은 삭제가 아니라 생성 (입력값보다 작은 값으로 새 리스트 생성)
-    public ArithmeticCalculator removeUpperResult(ArithmeticCalculator cal, Scanner sc){
+    // stream 값보다 큰 결과 조회
+    public ArithmeticCalculator checkUpperResult(ArithmeticCalculator cal, Scanner sc){
         try {
-            System.out.println("숫자를 입력해주세요. 입력값보다 높은 결과값은 삭제됩니다.");
+            System.out.println("숫자를 입력해주세요. 입력값보다 높은 결과값이 조회됩니다.");
 
             double inputNum = sc.nextDouble();
-
-            resultList = cal.getResultList();
-
-            resultList = resultList.stream()
-                    .filter(result -> result.getResultNum().doubleValue() <= inputNum)
+            
+            //필터활용하여 새로운 데이터 생성
+            resultList = cal.getResultList().stream()
+                    .filter(result -> result.getResultNum().doubleValue() > inputNum)
                     .collect(Collectors.toList());
 
-            cal.setResultList(resultList);
+            //list set
             System.out.println(resultList);
 
         } catch (Exception e) {
