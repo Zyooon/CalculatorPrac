@@ -47,9 +47,6 @@ public class App {
                 //가장 먼저 저장된 데이터 지우기
                 calculator = calculator.removeResult(calculator, sc);
             }
-
-            
-
         }
         sc.close();
     }
@@ -68,8 +65,8 @@ public class App {
                 tempNum = sc.nextInt();
                 calData.setFirstNum(tempNum);
                 break;
-            } catch (Exception e) {
-                System.out.println("제대로 입력해 주세요");
+            }catch (InputMismatchException e){
+                System.out.println("문자나 기호, 너무 긴 숫자는 입력할 수 없어요.");
                 sc.nextLine();
             }
         }
@@ -84,14 +81,14 @@ public class App {
                 if(operatorSet.contains(tempChar)) {
                     calData.setOperator(tempChar);
                     break;
+                }else {
+                    System.out.println("+,-,*,/ 만 입력해주세요");
                 }
-
             } catch (Exception e) {
-                System.out.println("제대로 입력해 주세요1");
+                System.out.println("+,-,*,/ 만 입력해주세요");
                 sc.nextLine();
                 continue;
             }
-            System.out.println("제대로 입력해 주세요2");
         }
 
         //두번째 숫자 입력
@@ -106,9 +103,10 @@ public class App {
                 }
                 calData.setSecondNum(tempNum);
                 break;
-            } catch (Exception e) {
-                System.out.println("제대로 입력해 주세요");
+            } catch (InputMismatchException e){
+                System.out.println("문자나 기호, 너무 긴 숫자는 입력할 수 없어요.");
                 sc.nextLine();
+
             }
         }
         return calData;

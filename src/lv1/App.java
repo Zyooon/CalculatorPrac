@@ -28,9 +28,6 @@ public class App {
                 } catch (InputMismatchException e){
                     System.out.println("문자나 기호, 너무 긴 숫자는 입력할 수 없어요.");
                     sc.nextLine();
-                } catch (Exception e) {
-                    System.out.println("제대로 입력해 주세요.");
-                    sc.nextLine();
                 }
             }
             
@@ -42,12 +39,13 @@ public class App {
                     String str = sc.next(); //nextLine > next 로 변경
                     operator = str.charAt(str.length()-1);
                     if(operatorSet.contains(operator)) break;
+                    else System.out.println("+,-,*,/ 만 입력해주세요");
 
                 } catch (Exception e) {
                     System.out.println("+,-,*,/ 만 입력해주세요");
                     sc.nextLine();
                 }
-                System.out.println("+,-,*,/ 만 입력해주세요");
+
             }
 
             //두번째 숫자 입력
@@ -65,9 +63,6 @@ public class App {
                     System.out.println("문자나 기호, 너무 긴 숫자는 입력할 수 없어요.");
                     sc.nextLine();
 
-                } catch (Exception e) {
-                    System.out.println("제대로 입력해 주세요3");
-                    sc.nextLine();
                 }
             }
 

@@ -192,13 +192,13 @@ public class ArithmeticCalculator {
 
             double inputNum = sc.nextDouble();
             
-            //필터활용하여 새로운 데이터 생성
-            resultList = cal.getResultList().stream()
+            //필터활용하여 새로운 데이터 조회
+            List<ArithmeticCalculatorData> list = cal.getResultList().stream()
                     .filter(result -> result.getResultNum().doubleValue() > inputNum)
                     .collect(Collectors.toList());
 
-            //list set
-            System.out.println(resultList);
+            //list 출력
+            System.out.println(list);
 
         } catch (Exception e) {
             System.out.println("똑바로 입력해 주세요.");
