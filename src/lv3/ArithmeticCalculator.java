@@ -220,6 +220,7 @@ public class ArithmeticCalculator {
             System.out.print("숫자 입력 : ");
             try {
                 tempNum = sc.nextDouble();
+                sc.nextLine();
                 if (isInt(tempNum)) {
                     calData.setFirstNum((int) tempNum);
                 } else {
@@ -234,10 +235,10 @@ public class ArithmeticCalculator {
 
         //연산자 입력
         while (true) {
-            System.out.println("\n연산자를 입력하세요");
+            System.out.println("\n연산자를 입력하세요.  (+,-,*,/)");
             System.out.print("연산자 입력 : ");
             try {
-                String str = sc.next(); //nextLine > next 로 변경
+                String str = sc.nextLine();
                 tempChar = str.charAt(str.length() - 1);
                 if (operatorSet.contains(tempChar)) {
                     calData.setOperator(tempChar);

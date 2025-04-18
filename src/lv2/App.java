@@ -63,6 +63,7 @@ public class App {
             System.out.print("숫자 입력 : ");
             try{
                 tempNum = sc.nextInt();
+                sc.nextLine();
                 calData.setFirstNum(tempNum);
                 break;
             }catch (InputMismatchException e){
@@ -73,10 +74,10 @@ public class App {
 
         //연산자 입력
         while(true){
-            System.out.println("\n연산자를 입력하세요");
+            System.out.println("\n연산자를 입력하세요.  (+,-,*,/)");
             System.out.print("연산자 입력 : ");
             try{
-                String str = sc.next(); //nextLine > next 로 변경
+                String str = sc.nextLine();
                 tempChar = str.charAt(str.length()-1);
                 if(operatorSet.contains(tempChar)) {
                     calData.setOperator(tempChar);
@@ -87,7 +88,6 @@ public class App {
             } catch (Exception e) {
                 System.out.println("+,-,*,/ 만 입력해주세요");
                 sc.nextLine();
-                continue;
             }
         }
 
@@ -96,7 +96,7 @@ public class App {
             System.out.println("\n두번째 숫자를 입력하세요");
             System.out.print("숫자 입력 : ");
             try{
-                tempNum = sc.nextInt();
+                tempNum = sc.nextInt(); //메서드가 넘어가기 때문에 nextLine() 필요 없음
                 if(tempChar == '/' && tempNum == 0) {
                     System.out.println("0으로 나눌 수 없습니다.");
                     continue;

@@ -24,6 +24,7 @@ public class App {
                 System.out.print("숫자 입력 : ");
                 try{
                     firstNum = sc.nextInt();
+                    sc.nextLine();
                     break;
                 } catch (InputMismatchException e){
                     System.out.println("문자나 기호, 너무 긴 숫자는 입력할 수 없어요.");
@@ -36,7 +37,7 @@ public class App {
                 System.out.println("\n연산자를 입력하세요. (+,-,*,/)");
                 System.out.print("연산자 입력 : ");
                 try{
-                    String str = sc.next(); //nextLine > next 로 변경
+                    String str = sc.nextLine();
                     operator = str.charAt(str.length()-1);
                     if(operatorSet.contains(operator)) break;
                     else System.out.println("+,-,*,/ 만 입력해주세요");
@@ -54,6 +55,7 @@ public class App {
                 System.out.print("숫자 입력 : ");
                 try{
                     secondNum = sc.nextInt();
+                    sc.nextLine();
                     if(operator == '/' && secondNum == 0) {
                         System.out.println("0으로 나눌 수 없습니다.");
                         continue;
@@ -62,7 +64,6 @@ public class App {
                 } catch (InputMismatchException e){
                     System.out.println("문자나 기호, 너무 긴 숫자는 입력할 수 없어요.");
                     sc.nextLine();
-
                 }
             }
 
@@ -83,7 +84,7 @@ public class App {
             }
 
             try{
-                exit = sc.next();
+                exit = sc.nextLine();
                 if(exit.equals("exit")){
                     System.out.println("종료되었습니다.");
                     break;
@@ -91,10 +92,11 @@ public class App {
             } catch (Exception e) {
                 sc.nextLine();
             }
+
             //계산 끝
         }
 
-        sc.close();
 
+        sc.close();
     }
 }
