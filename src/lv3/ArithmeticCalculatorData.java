@@ -1,5 +1,7 @@
 package lv3;
 
+import java.text.DecimalFormat;
+
 //T 타입을 Number 로 제한 -> 숫자만 입력받음
 public class ArithmeticCalculatorData<T extends Number> {
 
@@ -46,7 +48,7 @@ public class ArithmeticCalculatorData<T extends Number> {
 
     @Override
     public String toString() {
-        return "연산 결과{ " + firstNum + " " + operator + " " + secondNum + " = " + resultNum + " }";
+        return "연산 결과{ " + firstNum + " " + operator + " " + secondNum + " = " + new DecimalFormat("#.############").format(resultNum) + " }";
 
     }
 }

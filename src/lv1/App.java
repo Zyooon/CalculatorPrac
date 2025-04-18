@@ -74,7 +74,7 @@ public class App {
                     case '*' : resultNum = Math.multiplyExact(firstNum,secondNum); break;
                     case '/' : resultNum = firstNum / secondNum; break;
                 }
-                System.out.println("연산 결과 : " + resultNum);
+                System.out.println("\n연산 결과 : " + resultNum);
                 System.out.println("\n더 하시려면 아무키나 눌러주세요. (exit 입력 시 종료)");
             } catch (ArithmeticException e) {
                 System.out.println("입력값이 범위를 초과하였습니다.");

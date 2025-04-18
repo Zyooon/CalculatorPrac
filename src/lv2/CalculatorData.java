@@ -10,6 +10,13 @@ public class CalculatorData {
     public CalculatorData() {
     }
 
+    public CalculatorData(int firstNum, int secondNum, char operator, int resultNum) {
+        this.firstNum = firstNum;
+        this.secondNum = secondNum;
+        this.operator = operator;
+        this.resultNum = resultNum;
+    }
+
     public int getFirstNum() {
         return firstNum;
     }

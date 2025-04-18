@@ -25,7 +25,7 @@ public class App {
             //계산 - 입력값 범위 초과시 에러
             try{
                 calData.setResultNum(calculator.calculate(calData));
-                System.out.println("연산 결과 : " + calData.getResultNum());
+                System.out.println("\n연산 결과 : " + calData.getResultNum());
             }catch (ArithmeticException e) {
                 System.out.println("입력값이 범위를 초과하였습니다.");
                 System.out.println("다시 입력해 주세요.");

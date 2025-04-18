@@ -33,29 +33,25 @@ public class ArithmeticCalculator {
 
     //enum 생성하여 연산 관리 -> enum 은 제네릭 타입이 안됨
     public enum OperatorType {
-        PLUS('+', (x, y)
-                -> x.doubleValue() + y.doubleValue()),
-        MINUS('-', (x, y)
-                -> x.doubleValue() - y.doubleValue()),
-        MULTIPLY('*', (x, y)
-                -> x.doubleValue() * y.doubleValue()),
-        DIVIDE('/', (x, y)
-                -> x.doubleValue() / y.doubleValue());
+        PLUS('+', (x, y) -> x + y),
+        MINUS('-', (x, y) -> x - y),
+        MULTIPLY('*', (x, y) -> x * y),
+        DIVIDE('/', (x, y)-> x / y);
 
         private final char symbol;
-        private final BiFunction<Number, Number, Number> operation;
+        private final BiFunction<Double, Double, Double> operate;
 
         // BiFunction<파라미터1 타입, 파라미터2 타입, 리턴 타입> -> 파라미터가 2개, 리턴값 1개
-        OperatorType(char symbol, BiFunction<Number, Number, Number> operation) {
+        OperatorType(char symbol, BiFunction<Double, Double, Double> operate) {
             this.symbol = symbol;
-            this.operation = operation;
+            this.operate = operate;
         }
 
-        public Number operate(Number x, Number y) {
-            return operation.apply(x, y);
+        // 연산 값 리턴
+        public double operate(double x, double y) {
+            return operate.apply(x, y);
         }
 
-        //case 앞에 getSymbol()로 조건 추가하려 했지만 안됨
         public char getSymbol() {
             return symbol;
         }
@@ -64,9 +60,9 @@ public class ArithmeticCalculator {
     //계산하는 메서드
     public ArithmeticCalculatorData calculate(ArithmeticCalculatorData calData) {
 
-        Number resultNum;
-        Number firstNum = calData.getFirstNum();
-        Number secondNum = calData.getSecondNum();
+        double resultNum;
+        double firstNum = calData.getFirstNum().doubleValue();
+        double secondNum = calData.getSecondNum().doubleValue();
         char operatorSymbol = calData.getOperator();
 
         switch (operatorSymbol) {
@@ -86,11 +82,10 @@ public class ArithmeticCalculator {
                 resultNum = 0;
         }
 
-        if (isInt(resultNum.doubleValue())) calData.setResultNum(resultNum.intValue());
+        if (isInt(resultNum)) calData.setResultNum((int)resultNum);
         else calData.setResultNum(resultNum);
 
         return calData;
-
     }
 
     // 종료할지 말지

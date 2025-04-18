@@ -41,7 +41,7 @@ public class Calculator {
         return resultNum;
     }
 
-    // 또 할지 말지
+    // 종료 여부
      public int isGoStop(Scanner sc){
         System.out.println("\n더 하시려면 아무키나 눌러주세요. (exit 입력 시 종료, del 입력시 데이터 삭제)");
         try{
@@ -57,7 +57,8 @@ public class Calculator {
         return 1;
      }
      // 데이터 삭제
-     public Calculator removeResult(Calculator rd, Scanner sc){
+     public Calculator removeResult(Calculator cal, Scanner sc){
+        if(cal.getResultStack().isEmpty()) return cal;
         int scTemp;
         while (true){
              System.out.println("\n데이터를 지우시겠습니까?");
@@ -68,13 +69,13 @@ public class Calculator {
                  scTemp = sc.nextInt();
 
                  if(scTemp == 1){
-                     rd.getResultStack().pop();
-                     return rd;
+                     cal.getResultStack().pop();
+                     return cal;
                  } else if (scTemp == 2) {
-                     rd.getResultStack().clear();
-                     return rd;
+                     cal.getResultStack().clear();
+                     return cal;
                  } else if(scTemp == 0){
-                     return rd;
+                     return cal;
                  }
                  System.out.println("다시 눌러 주세요.");
              } catch (Exception e) {

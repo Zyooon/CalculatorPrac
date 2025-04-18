@@ -1,5 +1,6 @@
 package lv3;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class App {
@@ -25,7 +26,8 @@ public class App {
 
             //계산
             calculator.calculate(calData);
-            System.out.println("\n연산 결과 : " + calData.getResultNum());
+            //double 출력 시 소수점999999999.. 로 나오는 결과 수정
+            System.out.println("\n연산 결과 : " + new DecimalFormat("#.############").format(calData.getResultNum()));
 
             //결과 저장
             calculator.getResultList().add(calData);
