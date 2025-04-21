@@ -5,14 +5,10 @@ import java.util.Scanner;
 
 public class App {
 
-    static ArithmeticCalculator calculator = new ArithmeticCalculator();
-
     public static void main(String[] args) {
-
+        ArithmeticCalculator calculator = new ArithmeticCalculator();
+        //스캐너 생성
         Scanner sc = new Scanner(System.in);
-        //메인 클래스
-        //생성자 클래스 - 숫자 두개, 연산자, 결과 값, 결과 기록 stack
-        //연산하는 클래스
 
         //계산기 클래스
         while(true){

@@ -52,6 +52,7 @@ public class ArithmeticCalculator {
             return operate.apply(x, y);
         }
 
+        // 심볼 값 리턴 (+,-,*,/)
         public char getSymbol() {
             return symbol;
         }
@@ -146,7 +147,7 @@ public class ArithmeticCalculator {
     }
 
     // 데이터 삭제
-    public ArithmeticCalculator removeResult(ArithmeticCalculator cal, Scanner sc) {
+    private ArithmeticCalculator removeResult(ArithmeticCalculator cal, Scanner sc) {
         if (cal.getResultList().isEmpty()) {
             System.out.println("연산 데이터가 존재하지 않습니다.");
             return cal;
@@ -184,6 +185,10 @@ public class ArithmeticCalculator {
     }
     // stream 값보다 큰 결과 조회
     public void checkUpperResult(ArithmeticCalculator cal, Scanner sc){
+        if (cal.getResultList().isEmpty()) {
+            System.out.println("연산 데이터가 존재하지 않습니다.");
+            return;
+        }
         while(true){
             try {
                 System.out.println("숫자를 입력해주세요. 입력값보다 높은 결과값이 조회됩니다.");
@@ -197,11 +202,8 @@ public class ArithmeticCalculator {
                         .collect(Collectors.toList());
 
                 //list 출력
-                if(list.isEmpty()){
-                    System.out.println("\n해당 결과가 없습니다.");
-                }else{
-                    System.out.println("\n"+inputNum+"보다 높은 결과 : "+list);
-                }
+                System.out.println("\n"+inputNum+"보다 높은 결과 : "+list);
+
                 return;
 
 
@@ -213,14 +215,14 @@ public class ArithmeticCalculator {
     }
 
     //int or double 판독
-    public static boolean isInt(double num) {
+    private boolean isInt(double num) {
         if (num > Integer.MAX_VALUE || num < Integer.MIN_VALUE) {
             return false;
         } else return num % 1 == 0.0;
     }
 
     // 계산기 숫자 및 연산자 입력
-    public static ArithmeticCalculatorData inputData(ArithmeticCalculatorData calData, Scanner sc) {
+    public ArithmeticCalculatorData inputData(ArithmeticCalculatorData calData, Scanner sc) {
         double tempNum;
         char tempChar;
 
