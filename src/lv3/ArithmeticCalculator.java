@@ -128,7 +128,7 @@ public class ArithmeticCalculator {
                         System.out.println(cal.getResultList());
                         break;
                     case 2:
-                        cal = checkUpperResult(cal, sc);
+                        checkUpperResult(cal, sc);
                         break;
                     case 3:
                         cal = removeResult(cal, sc);
@@ -159,6 +159,7 @@ public class ArithmeticCalculator {
             System.out.println("삭제 안함 : 0");
             try {
                 scTemp = sc.nextInt();
+                sc.nextLine();
 
                 if (scTemp == 1) {
                     cal.getResultList().remove(resultList.size() - 1);
@@ -176,30 +177,39 @@ public class ArithmeticCalculator {
 
             } catch (Exception e) {
                 System.out.println("다시 눌러 주세요.");
+                sc.nextLine();
             }
         }
 
     }
     // stream 값보다 큰 결과 조회
-    public ArithmeticCalculator checkUpperResult(ArithmeticCalculator cal, Scanner sc){
-        try {
-            System.out.println("숫자를 입력해주세요. 입력값보다 높은 결과값이 조회됩니다.");
+    public void checkUpperResult(ArithmeticCalculator cal, Scanner sc){
+        while(true){
+            try {
+                System.out.println("숫자를 입력해주세요. 입력값보다 높은 결과값이 조회됩니다.");
 
-            double inputNum = sc.nextDouble();
-            
-            //필터활용하여 새로운 데이터 조회
-            List<ArithmeticCalculatorData> list = cal.getResultList().stream()
-                    .filter(result -> result.getResultNum().doubleValue() > inputNum)
-                    .collect(Collectors.toList());
+                double inputNum = sc.nextDouble();
+                sc.nextLine();
 
-            //list 출력
-            System.out.println(list);
+                //필터활용하여 새로운 데이터 조회
+                List<ArithmeticCalculatorData> list = cal.getResultList().stream()
+                        .filter(result -> result.getResultNum().doubleValue() > inputNum)
+                        .collect(Collectors.toList());
 
-        } catch (Exception e) {
-            System.out.println("똑바로 입력해 주세요.");
+                //list 출력
+                if(list.isEmpty()){
+                    System.out.println("\n해당 결과가 없습니다.");
+                }else{
+                    System.out.println("\n"+inputNum+"보다 높은 결과 : "+list);
+                }
+                return;
+
+
+            } catch (Exception e) {
+                System.out.println("똑바로 입력해 주세요.");
+                sc.nextLine();
+            }
         }
-
-        return cal;
     }
 
     //int or double 판독
