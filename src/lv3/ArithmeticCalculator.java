@@ -6,24 +6,14 @@ import java.util.stream.Collectors;
 
 public class ArithmeticCalculator {
 
-    private static Set<Character> operatorSet = new HashSet<>(Arrays.asList('*', '+', '-', '/'));
-
     private List<ArithmeticCalculatorData> resultList;
 
     public ArithmeticCalculator() {
         resultList = new ArrayList<>();
     }
 
-    public ArithmeticCalculator(List<ArithmeticCalculatorData> resultList) {
-        this.resultList = resultList;
-    }
-
     public List<ArithmeticCalculatorData> getResultList() {
         return resultList;
-    }
-
-    public void setResultList(List<ArithmeticCalculatorData> resultList) {
-        this.resultList = resultList;
     }
 
     @Override
@@ -31,7 +21,7 @@ public class ArithmeticCalculator {
         return "전체 결과{" + resultList + '}';
     }
 
-    //enum 생성하여 연산 관리 -> enum 은 제네릭 타입이 안됨
+    //enum 생성하여 연산 관리
     public enum OperatorType {
         PLUS('+', (x, y) -> x + y),
         MINUS('-', (x, y) -> x - y),
@@ -89,7 +79,7 @@ public class ArithmeticCalculator {
         return calData;
     }
 
-    // 종료할지 말지
+    // 종료 여부 결정
     public boolean isGoStop(Scanner sc) {
         System.out.println("\n.exit 입력 시 종료됩니다.");
         try {
@@ -223,6 +213,7 @@ public class ArithmeticCalculator {
 
     // 계산기 숫자 및 연산자 입력
     public ArithmeticCalculatorData inputData(ArithmeticCalculatorData calData, Scanner sc) {
+        Set<Character> operatorSet = new HashSet<>(Arrays.asList('*', '+', '-', '/'));
         double tempNum;
         char tempChar;
 

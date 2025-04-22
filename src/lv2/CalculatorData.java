@@ -2,21 +2,17 @@ package lv2;
 
 public class CalculatorData {
 
+    //필드
     private int firstNum;
     private int secondNum;
     private char operator;
     private int resultNum;
 
+    //기본 생성자
     public CalculatorData() {
     }
 
-    public CalculatorData(int firstNum, int secondNum, char operator, int resultNum) {
-        this.firstNum = firstNum;
-        this.secondNum = secondNum;
-        this.operator = operator;
-        this.resultNum = resultNum;
-    }
-
+    //getter, setter
     public int getFirstNum() {
         return firstNum;
     }
@@ -50,6 +46,7 @@ public class CalculatorData {
     }
 
 
+    //toString
     @Override
     public String toString() {
         return "연산 결과{ " + firstNum+ " " +operator+ " " + secondNum + " = " + resultNum + " }";

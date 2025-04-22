@@ -5,14 +5,17 @@ import java.text.DecimalFormat;
 //T 타입을 Number 로 제한 -> 숫자만 입력받음
 public class ArithmeticCalculatorData<T extends Number> {
 
+    //필드
     private T firstNum;
     private T secondNum;
     private char operator;
     private T resultNum;
 
+    //기본 생성자
     public ArithmeticCalculatorData() {
     }
 
+    //getter, setter
     public T getFirstNum() {
         return firstNum;
     }

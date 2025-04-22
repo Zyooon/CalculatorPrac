@@ -12,8 +12,10 @@ public class App {
 
         //계산기 클래스
         while(true){
+            //객체 생성
             ArithmeticCalculatorData calData = new ArithmeticCalculatorData<>();
 
+            //작업 입력
             if(!calculator.selectWork(sc, calculator)) break;
 
             //숫자 입력

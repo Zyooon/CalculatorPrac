@@ -4,6 +4,7 @@ import java.util.*;
 
 public class App {
 
+    //계산 사용 필드
     static Scanner sc = new Scanner(System.in);
     static int firstNum;
     static int secondNum;
@@ -16,6 +17,7 @@ public class App {
 
         System.out.println("계산기 시작!");
 
+        //반복문사용
         while(true){
 
             //첫번째 숫자 입력
@@ -83,6 +85,7 @@ public class App {
                 continue;
             }
 
+            //exit 입력 시 종료
             try{
                 exit = sc.nextLine();
                 if(exit.equals("exit")){
