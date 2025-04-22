@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
+        //계산 클래스 인스턴스
         ArithmeticCalculator calculator = new ArithmeticCalculator();
         //스캐너 생성
         Scanner sc = new Scanner(System.in);
