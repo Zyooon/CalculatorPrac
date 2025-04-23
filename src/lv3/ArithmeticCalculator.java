@@ -51,30 +51,14 @@ public class ArithmeticCalculator {
     //계산하는 메서드
     public ArithmeticCalculatorData calculate(ArithmeticCalculatorData calData) {
 
-        double resultNum;
+        double resultNum = 0.0;
         double firstNum = calData.getFirstNum().doubleValue();
         double secondNum = calData.getSecondNum().doubleValue();
         char operatorSymbol = calData.getOperator();
+        
 
-        switch (operatorSymbol) {
-            case '+':
-                resultNum = OperatorType.PLUS.operate(firstNum, secondNum);
-                break;
-            case '-':
-                resultNum = OperatorType.MINUS.operate(firstNum, secondNum);
-                break;
-            case '*':
-                resultNum = OperatorType.MULTIPLY.operate(firstNum, secondNum);
-                break;
-            case '/':
-                resultNum = OperatorType.DIVIDE.operate(firstNum, secondNum);
-                break;
-            default:
-                resultNum = 0;
-        }
-
-        // if-else 문으로 변경
-/*        if(operatorSymbol == OperatorType.PLUS.getSymbol()){
+        // case문 -> if-else 로 변경
+        if(operatorSymbol == OperatorType.PLUS.getSymbol()){
             resultNum = OperatorType.PLUS.operate(firstNum, secondNum);
         }else if(operatorSymbol == OperatorType.MINUS.getSymbol()){
             resultNum = OperatorType.MINUS.operate(firstNum, secondNum);
@@ -82,7 +66,7 @@ public class ArithmeticCalculator {
             resultNum = OperatorType.MULTIPLY.operate(firstNum, secondNum);
         }else if(operatorSymbol == OperatorType.DIVIDE.getSymbol()){
             resultNum = OperatorType.DIVIDE.operate(firstNum, secondNum);
-        }*/
+        }
 
         if (isInt(resultNum)) calData.setResultNum((int)resultNum);
         else calData.setResultNum(resultNum);
