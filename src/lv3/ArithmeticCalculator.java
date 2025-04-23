@@ -73,6 +73,17 @@ public class ArithmeticCalculator {
                 resultNum = 0;
         }
 
+        // if-else 문으로 변경
+/*        if(operatorSymbol == OperatorType.PLUS.getSymbol()){
+            resultNum = OperatorType.PLUS.operate(firstNum, secondNum);
+        }else if(operatorSymbol == OperatorType.MINUS.getSymbol()){
+            resultNum = OperatorType.MINUS.operate(firstNum, secondNum);
+        }else if(operatorSymbol == OperatorType.MULTIPLY.getSymbol()){
+            resultNum = OperatorType.MULTIPLY.operate(firstNum, secondNum);
+        }else if(operatorSymbol == OperatorType.DIVIDE.getSymbol()){
+            resultNum = OperatorType.DIVIDE.operate(firstNum, secondNum);
+        }*/
+
         if (isInt(resultNum)) calData.setResultNum((int)resultNum);
         else calData.setResultNum(resultNum);
 
